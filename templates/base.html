@@ -1,0 +1,37 @@
+   <!DOCTYPE html>
+   <html lang="en">
+   <head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+       <title>BudgetNest</title>
+       <style>
+           * {
+               margin: 0;
+               padding: 0;
+               box-sizing: border-box;
+           }
+           html, body {
+               height: 100%;
+               width: 100%;
+               overflow: hidden;
+           }
+           body {
+               display: flex;
+               flex-direction: column;
+           }
+           #content-block {
+               flex: 1;
+               width: 100%;
+               overflow: auto;
+           }
+       </style>
+   </head>
+   <body>
+   {% include 'navbar.html' %}
+   <div id="content-block">
+       {% block content %}
+       {% endblock %}
+   </div>
+   </body>
+   </html>
