@@ -8,7 +8,7 @@ from django.views.decorators.cache import never_cache
 @login_required
 @never_cache
 def dashboard_view(request):
-    return render(request, 'dashboard.html')
+    return render(request, 'accounts/dashboard.html')
 
 def signup_view(request):
     if request.method == "POST":
@@ -38,5 +38,5 @@ def signup_view(request):
 
         messages.success(request, "Account created successfully! Please log in.")
         return redirect("login")
-    return render(request, "signup.html")
+    return render(request, "accounts/signup.html")
 
