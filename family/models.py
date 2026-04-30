@@ -5,10 +5,8 @@ from django.db import models
 
 class FamilyMembers(models.Model): # contains family details
     familyLead = models.ForeignKey(User, on_delete=models.CASCADE)
-    # head of family details store in user table--auth user  ;user table --when do migrations it will create automatic
-    # superuser;he will add family details
     firstname = models.CharField(max_length=100)
-    lastname = models.CharField(max_length=100)
+    age = models.IntegerField()
     income = models.FloatField(max_length=5000000000000000)
 
     def __str__(self):# what is str

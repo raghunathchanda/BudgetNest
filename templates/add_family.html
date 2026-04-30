@@ -1,38 +1,58 @@
-{% extends 'base.html' %}<!--<Access navbar.html to all pages  >-->
-{% block content %}<!--<open container  >-->
-{% load static %}<!--<load all static files  to this file  >-->
-<body style="background:url('static/images/addmember.jpg');
-            background-size:cover;background-attachment:fixed;
-  background-position:center;">
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<link href="{% static 'css/add_family.css' %}" rel="stylesheet">
+
+<body style="background:url('{% static 'images/addmember.jpg' %}');
+            background-size:cover;
+            background-attachment:fixed;
+            background-position:center;">
+
 <h1 align="center">Add Member</h1>
-<link href="{% static 'css/add_member.css' %}" rel="stylesheet"><!--<access add_member.css  to this file  >-->
+
+<!-- ✅ Message UI -->
+<div class="message-container">
+    {% if messages %}
+        {% for message in messages %}
+            <div class="custom-alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>
+
 {% if null %}
-    <p>please enter income</p>
+    <p class="error-text">Please enter income</p>
 {% endif %}
+
 <form action="{% url 'addingmember' %}" method="post">
-     {% csrf_token %}
-     <table align="center">
-         <tr>
-             <td>
-                 <input class="form-control form-control-lg" type="text" placeholder="First Name" name="firstname"><!--< Boot strap class >-->
-             </td>
-         </tr>
-         <tr>
-             <td>
-                 <input class="form-control form-control-lg" type="text" placeholder="Last name" name="lastname"><!--< Boot strap class >-->
-             </td>
-         </tr>
-         <tr>
-             <td>
-                 <input class="form-control form-control-lg" type="number" placeholder="Income" name="income"><!--< Boot strap class >-->
-             </td>
-         </tr>
-         <tr>
-             <td>
-                  <input type="submit" value="Add To Family Members" class="btn btn-primary btn-lg btn-block"><!--< Boot strap class >-->
-             </td>
-         </tr>
-     </table>
+    {% csrf_token %}
+    <table align="center">
+        <tr>
+            <td>
+                <input class="form-control form-control-lg" type="text" placeholder="First Name" name="firstname">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input class="form-control form-control-lg" type="number" placeholder="Age" name="age">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input class="form-control form-control-lg" type="number" placeholder="Income" name="income">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Add To Family Members" class="btn btn-primary btn-lg btn-block">
+            </td>
+        </tr>
+    </table>
 </form>
+
 </body>
-{% endblock%}<!--<close container  >-->
+
+{% endblock %}
