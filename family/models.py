@@ -12,3 +12,13 @@ class FamilyMembers(models.Model): # contains family details
     def __str__(self):# what is str
         return self.firstname # returning first name of family member
 
+class Expenses(models.Model):
+    familyLead = models.ForeignKey(User, on_delete=models.CASCADE)
+    name = models.ForeignKey(FamilyMembers, on_delete=models.CASCADE)
+    purpose = models.CharField(max_length=100)
+    expense = models.FloatField(max_length=100000000000000000)
+    date = models.DateField(blank=True, null=True)
+
+    def __str__(self):
+        return str(self.name)
+
