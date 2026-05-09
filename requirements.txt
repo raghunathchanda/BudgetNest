@@ -3,4 +3,4 @@ django-extensions==3.2.3
 Pillow>=11.2.1
 python-decouple==3.8
 django-crispy-forms==2.1
-crispy-bootstrap5==2.0.2
+crispy-bootstrap5==2024.10  # Bootstrap 5 form support
